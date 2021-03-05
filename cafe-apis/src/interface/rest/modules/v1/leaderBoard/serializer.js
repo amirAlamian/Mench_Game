@@ -1,0 +1,47 @@
+const leaderBoardSerializer = ({
+    score,
+    lastWeekScore,
+    weeklyScoreChange,
+    matches,
+    wins,
+    loses,
+    coin,
+    gem,
+    role,
+    friendsUsername,
+    pendingFriends,
+    requestFriends,
+    avatarIndex,
+    _id,
+    deviceId,
+    username,
+    name,
+    inviteCode,
+    email,
+}) => {
+    return {
+        _id,
+        score,
+        lastWeekScore,
+        weeklyScoreChange,
+        matches,
+        wins,
+        loses,
+        coin,
+        gem,
+        role,
+        friendsUsername,
+        pendingFriends,
+        requestFriends,
+        avatarIndex,
+        deviceId,
+        username,
+        name,
+        inviteCode,
+        email,
+    };
+};
+
+module.exports = {
+    leaderBoardSerializer,
+};

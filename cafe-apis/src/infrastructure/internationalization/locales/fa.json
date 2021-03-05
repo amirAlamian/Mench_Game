@@ -1,0 +1,78 @@
+{
+	"user": {
+		"validation": {
+			"deviceId": {
+				"type": "user.validation.deviceId.type",
+				"required": "user.validation.deviceId.required"
+			},
+			"phoneNumber": {
+				"pattern": "user.validation.phoneNumber.pattern",
+				"required": "user.validation.phoneNumber.required"
+			},
+			"verificationCode": {
+				"required": "user.validation.verificationCode.required",
+				"type": "user.validation.verificationCode.type"
+			},
+			"email": {
+				"pattern": "user.validation.email.pattern"
+			},
+			"username": {
+				"required": "Please Send Your Username",
+				"minLength": "user.validation.username.minLength"
+			}
+		}
+	},
+	"generic": {
+		"error": {
+			"failed": "generic.error.failed",
+			"internalServer": "generic.error.internalServer",
+			"notFound": "generic.error.notFound"
+		}
+	},
+	"users": {
+		"validation": {
+			"username": {
+				"duplicate": "User with this Username already exists!"
+			},
+			"email": {
+				"duplicate": "User with this Email already exists!"
+			}
+		}
+	},
+	"chats": {
+		"validation": {
+			"message": {
+				"required": "chats.validation.message.required"
+			}
+		}
+	},
+	"matchMaking": {
+		"validation": {
+			"maxPlayers": {
+				"required": "matchMaking.validation.maxPlayers.required",
+				"minimum": "matchMaking.validation.maxPlayers.minimum"
+			}
+		}
+	},
+	"gameplay": {
+		"validation": {
+			"newAction": {
+				"required": "gameplay.validation.newAction.required"
+			}
+		}
+	},
+	"currencies": {
+		"validation": {
+			"score": {
+				"type": "currencies.validation.score.type"
+			}
+		}
+	},
+	"friendship": {
+		"validation": {
+			"username": {
+				"required": "Please Send The Target User Username"
+			}
+		}
+	}
+}

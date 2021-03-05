@@ -1,0 +1,89 @@
+[
+    {
+        "type": {
+            "en":"string",
+            "fa":"رشته"
+        },
+        "rules": {
+            "minLength": { "type": "integer" },
+            "maxLength": { "type": "integer" },
+            "pattern": { "type": "string" }
+        },
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"number",
+            "fa":"عدد"
+        },
+        "rules": {
+            "minimum": { "type": "integer" },
+            "maximum": { "type": "integer" }
+        },
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"array",
+            "fa":"لیست"
+        },
+        "rules": {
+            "maxItems": { "type": "integer" },
+            "minItems": { "type": "integer" },
+            "uniqueItems": { "type": "boolean" },
+            "contains": { "type": "object" },
+            "items": { "type": "array" },
+            "additionalItems": { "type": "boolean" }
+        },
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"object",
+            "fa":"لیست"
+        },
+        "rules": {
+            "maxProperties": { "type": "integer" },
+            "minProperties": { "type": "integer" },
+            "required": { "type": "array" },
+            "properties": { "type": "object" },
+            "dependencies": { "type": "object" },
+            "additionalProperties": { "type": "boolean" }
+        },
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"integer",
+            "fa":"عدد صحیح"
+        },
+        "rules": {
+            "enum": { "type": "array" },
+            "minimum": { "type": "integer" },
+            "maximum": { "type": "integer" }
+        },
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"boolean",
+            "fa":"بولین"
+        },
+        "rules": {},
+        "version": 1
+    },
+    {
+        "type": {
+            "en":"selectBox",
+            "fa":"لیست انتخابی"
+        },
+        "rules": {
+            "reference": {
+                "type": "array",
+                "referenceObject":"selectBox",
+                "referenceField":"_id"
+            }
+        },
+        "version": 1
+    }
+]

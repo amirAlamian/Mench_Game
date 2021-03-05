@@ -1,0 +1,78 @@
+{
+  "name": "App_name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_PATH=. nodemon --delay 80ms .",
+    "obfuscator": "babel src --out-dir ./compiled-src && javascript-obfuscator compiled-src --output ./output && rsync -av --progress ./ ./output --exclude compiled-src --exclude src --exclude node_modules --exclude output && mv output/compiled-src output/src",
+    "dev:local": "cross-env NODE_PATH=. NODE_ENV=development nodemon --delay 80ms  --watch . index.js",
+    "eslint:fix": "eslint --ext .js . --fix",
+    "eslint:check": "eslint --ext .js ."
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-syntax-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.11.0",
+    "faker": "^5.1.0"
+  },
+  "dependencies": {
+    "@entropy/winston-elasticsearch-apm": "^1.0.6",
+    "awilix": "^4.2.6",
+    "axios": "^0.21.0",
+    "colors": "^1.4.0",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "cross-env": "^7.0.2",
+    "ejs": "^3.1.6",
+    "elastic-apm-node": "^3.7.0",
+    "express": "^5.0.0-alpha.8",
+    "express-flash": "0.0.2",
+    "express-list-endpoints": "^5.0.0",
+    "express-partial": "^0.1.0",
+    "express-session": "^1.17.1",
+    "generate-download-link": "^1.0.1",
+    "husky": "^4.3.0",
+    "i18n": "^0.13.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "qs": "^6.9.4",
+    "redis": "^3.0.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "safe-regex": "^2.1.1",
+    "swagger-jsdoc": "^4.2.3",
+    "swagger-ui-express": "^4.1.4",
+    "toobusy-js": "^0.5.1",
+    "utf8": "^3.0.0",
+    "winston": "^3.3.3"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint:check",
+      "commit-msg": "node scripts/validate_commit.js $HUSKY_GIT_PARAMS"
+    }
+  }
+}

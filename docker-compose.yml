@@ -1,0 +1,47 @@
+version: "3.7"
+networks:
+    server_node2:
+
+services: 
+    node-api:
+        build: .
+        container_name: node-api
+        volumes: 
+            - ./cafe-apis:/var/lib/nodeJS
+        ports: 
+            - "3000:4000"
+        networks: 
+            - server_node2
+        restart: "always"
+        command: ["sh","-c"," npm i && npm run dev"]
+        env_file:
+            - .env
+    node-panel:
+        build: .
+        container_name: node-panel
+        volumes: 
+            - ./cafe_panel:/var/lib/nodeJS
+        ports: 
+            - "4000:4000"
+        networks: 
+            - server_node2
+        restart: "always"
+        command: ["sh","-c"," npm i && npm start"]
+    mongo2:
+        image: mongo
+        container_name: mongo2
+        networks:
+            - server_node2
+        volumes:
+            - mongo2:/data/db
+        ports :
+            - "27018:27017"
+
+    redis2:
+        image: redis
+        container_name: redis2
+        networks: 
+            - server_node2
+
+volumes:
+    mongo2:
